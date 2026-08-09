@@ -111,6 +111,10 @@ export default function HeroSection() {
               dashboards, telemetry, and production-facing business websites.
             </p>
 
+            <p className="animate-fade-in delay-300 text-sm font-semibold tracking-wide text-amber-200">
+              Open to full-stack roles in Germany.
+            </p>
+
             <div className="animate-fade-in delay-400 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#projects"

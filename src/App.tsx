@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import HeroSection from "@/components/ui/glassmorphism-trust-hero";
 
 const skills = [
@@ -18,6 +18,12 @@ const skills = [
   "Vitest",
   "Prometheus",
   "Grafana",
+  "Socket.io",
+  "Redis",
+  "WebSockets",
+  "OpenAI API",
+  "SSE",
+  "Drizzle ORM",
 ];
 
 const experience = [
@@ -50,17 +56,19 @@ const projects = [
     category: "Real-time collaboration platform",
     summary:
       "A polished live workspace for sharing updates, coordinating work, and keeping teams aligned in one focused interface.",
-    stack: ["React", "TypeScript", "Real-time UI"],
+    stack: ["Next.js", "Socket.io", "Redis", "PostgreSQL"],
     github: "https://github.com/Bishrav/LiveBoard",
+    live: "https://liveboard-production-6a27.up.railway.app",
     featured: true,
   },
   {
     name: "DevLens",
-    category: "Developer productivity dashboard",
+    category: "AI-powered code review tool",
     summary:
-      "A developer-focused dashboard that turns project activity and engineering signals into a clearer, more actionable view of delivery.",
-    stack: ["React", "TypeScript", "Analytics"],
+      "An AI-powered code review workspace that turns source snippets into structured findings with severity, line references, and actionable fix guidance.",
+    stack: ["Next.js", "OpenAI API", "SSE Streaming"],
     github: "https://github.com/Bishrav/DevLens",
+    live: "https://devlens-production-5624.up.railway.app",
     featured: true,
   },
   {
@@ -180,16 +188,29 @@ function App() {
                   <span key={item} className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-zinc-300">{item}</span>
                 ))}
               </div>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white transition group-hover:text-amber-200"
-              >
-                <Github className="h-4 w-4" />
-                View on GitHub
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white transition group-hover:text-amber-200"
+                >
+                  <Github className="h-4 w-4" />
+                  View on GitHub
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-300/20"
+                  >
+                    Live Demo
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
@@ -229,6 +250,7 @@ function App() {
           <div className="flex items-center gap-4">
             <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://github.com/Bishrav" target="_blank" rel="noreferrer"><Github className="h-4 w-4" /> GitHub</a>
             <a className="inline-flex items-center gap-2 transition hover:text-white" href="mailto:bishravs@gmail.com"><Mail className="h-4 w-4" /> Email</a>
+            <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://www.linkedin.com/in/bishrav-shiwakoti-603201345/" target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4" /> LinkedIn</a>
           </div>
         </div>
       </footer>
