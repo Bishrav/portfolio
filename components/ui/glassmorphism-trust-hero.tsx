@@ -221,11 +221,11 @@ export default function HeroSection() {
                   <Mail className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://github.com/Bishrav"
+                  href="https://bishrav-portfolio-production.up.railway.app"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-zinc-300 transition hover:bg-white/10 hover:text-white"
-                  aria-label="View project evidence"
+                  aria-label="View portfolio"
                 >
                   <Github className="h-5 w-5" />
                 </a>

@@ -251,6 +251,7 @@ function App() {
             <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://github.com/Bishrav" target="_blank" rel="noreferrer"><Github className="h-4 w-4" /> GitHub</a>
             <a className="inline-flex items-center gap-2 transition hover:text-white" href="mailto:bishravs@gmail.com"><Mail className="h-4 w-4" /> Email</a>
             <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://www.linkedin.com/in/bishrav-shiwakoti-603201345/" target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4" /> LinkedIn</a>
+            <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://bishrav-portfolio-production.up.railway.app" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Portfolio</a>
           </div>
         </div>
       </footer>
