@@ -17,13 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "files": [
-    "src/main.tsx",
-    "src/App.tsx",
-    "components/ui/glassmorphism-trust-hero.tsx",
-    "components/ui/demo.tsx"
-  ]
+  "include": ["src"]
 }

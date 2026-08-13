@@ -1,288 +1,100 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
-import HeroSection from "@/components/ui/glassmorphism-trust-hero";
-
-const skills = [
-  "React",
-  "Next.js App Router",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "FastAPI",
-  "PostgreSQL",
-  "SQLite",
-  "Prisma",
-  "Sequelize",
-  "JWT",
-  "Docker Compose",
-  "Jest",
-  "Vitest",
-  "Prometheus",
-  "Grafana",
-  "Socket.io",
-  "Redis",
-  "WebSockets",
-  "OpenAI API",
-  "SSE",
-  "Drizzle ORM",
-  "Python",
-  "Machine Learning",
-  "Threat Modeling",
-  "Security Observability",
-  "Kafka",
-  "Neo4j",
-  "PostGIS",
-  "pgvector",
-  "OpenTelemetry",
-  "MinIO",
-];
-
-const experience = [
-  {
-    company: "Skyblitz Trading LLC",
-    role: "Mid-Level Software Developer",
-    period: "2024 - Present",
-    details:
-      "Contributed to production-facing website and backend systems, including API behavior, database-backed workflows, validation, structured responses, and maintainable service logic.",
-  },
-  {
-    company: "Mobizilla Digital Agency",
-    role: "Mid-Level Software Developer",
-    period: "2024 - Present",
-    details:
-      "Built and maintained live web platform work for mymobizilla.com across UI implementation, API integration, authentication-related flows, data handling, and deployment-ready code.",
-  },
-  {
-    company: "Aspire Group",
-    role: "Part-Time Mid-Level Software Developer",
-    period: "2021 - 2023",
-    details:
-      "Helped define website concepts, technology choices, early system design, and Agile delivery plans for web products.",
-  },
-];
-
-const projects = [
-  {
-    name: "Sentinel",
-    category: "Security intelligence and incident correlation",
-    summary:
-      "Autonomous cybersecurity intelligence engine that normalizes authentication, API, database, container, and infrastructure telemetry, then combines deterministic detection, behavioral ML, sequence analysis, threat graphs, and evidence-grounded investigation.",
-    stack: ["FastAPI", "Kafka", "Neo4j", "Behavioral ML", "OpenTelemetry"],
-    github: "https://github.com/Bishrav/Sentinel",
-    featured: true,
-  },
-  {
-    name: "AEGIS",
-    category: "Nepal flood-risk intelligence platform",
-    summary:
-      "Event-driven intelligence system that ingests weather, hydrology, roads, and public reports; detects anomalies, forecasts conditions, correlates incidents across time and geography, maps infrastructure dependencies, and produces transparent risk scores with evidence-grounded explanations.",
-    stack: ["FastAPI", "Next.js", "Kafka", "Neo4j", "PostGIS", "RBAC"],
-    github: "https://github.com/Bishrav/AEGIS",
-    featured: true,
-  },
-  {
-    name: "LiveBoard",
-    category: "Real-time collaboration platform",
-    summary:
-      "A polished live workspace for sharing updates, coordinating work, and keeping teams aligned in one focused interface.",
-    stack: ["Next.js", "Socket.io", "Redis", "PostgreSQL"],
-    github: "https://github.com/Bishrav/LiveBoard",
-    live: "https://liveboard-production-6a27.up.railway.app",
-    featured: true,
-  },
-  {
-    name: "DevLens",
-    category: "AI-powered code review tool",
-    summary:
-      "An AI-powered code review workspace that turns source snippets into structured findings with severity, line references, and actionable fix guidance.",
-    stack: ["Next.js", "OpenAI API", "SSE Streaming"],
-    github: "https://github.com/Bishrav/DevLens",
-    live: "https://devlens-production-5624.up.railway.app",
-    featured: true,
-  },
-  {
-    name: "SkillSwapWeb",
-    category: "Full-stack skill-sharing platform",
-    summary:
-      "React/Vite frontend with route guards, profiles, saved posts, cart/order flows, and component tests, backed by Express and PostgreSQL APIs.",
-    stack: ["React", "Express", "PostgreSQL"],
-    github: "https://github.com/Bishrav/SkillSwapWeb",
-  },
-  {
-    name: "Mobizlla",
-    category: "Next.js e-commerce/admin system",
-    summary:
-      "Storefront, product details, cart, buyback, repair, blog, admin login, dashboard sections, PostgreSQL schemas, and JWT-backed API routes.",
-    stack: ["Next.js", "PostgreSQL", "JWT"],
-    github: "https://github.com/Bishrav/mobizlla",
-  },
-  {
-    name: "Autonomous Mining Platform",
-    category: "FastAPI backend and worker agent",
-    summary:
-      "Rig registration, heartbeats, telemetry ingestion, commands, health checks, Prometheus metrics, Docker Compose, Grafana, Redis, and PostgreSQL.",
-    stack: ["FastAPI", "Redis", "Grafana"],
-    github: "https://github.com/Bishrav/Mining",
-  },
-  {
-    name: "PixelPunch",
-    category: "Automotive e-commerce platform",
-    summary:
-      "React/Vite client with protected auth routes, dashboards, checkout modal, Axios, responsive CSS, and Express/Sequelize REST services.",
-    stack: ["React", "Express", "Sequelize"],
-    github: "https://github.com/Bishrav/PixelPunch",
-  },
-];
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
+import ArchitectureDiagram from "@/components/ArchitectureDiagram";
+import ContactCTA from "@/components/ContactCTA";
+import ExperienceItem from "@/components/ExperienceItem";
+import MetricCard from "@/components/MetricCard";
+import ProjectCard from "@/components/ProjectCard";
+import SectionHeading from "@/components/SectionHeading";
+import SkillGroup from "@/components/SkillGroup";
+import { capabilities, experience, profile, projects, skillGroups } from "@/data/portfolio";
 
 function App() {
-  return (
-    <main id="top" className="min-h-screen bg-zinc-950 text-white">
-      <HeroSection />
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ["projects", "experience", "skills", "about", "contact"];
 
-      <nav className="sticky top-0 z-30 border-y border-white/10 bg-zinc-950/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#top" className="text-sm font-semibold tracking-wide text-white">BS<span className="text-amber-300">.</span></a>
-          <div className="flex items-center gap-5 text-xs font-medium text-zinc-400 sm:gap-8 sm:text-sm">
-            <a className="transition hover:text-white" href="#experience">Experience</a>
-            <a className="transition hover:text-white" href="#projects">Projects</a>
-            <a className="transition hover:text-white" href="#skills">Skills</a>
-            <a className="inline-flex items-center gap-1 rounded-full bg-amber-200 px-3 py-1.5 font-semibold text-zinc-950 transition hover:bg-amber-100" href="mailto:bishravs@gmail.com">
-              Contact <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+  return (
+    <main id="top">
+      <nav className="site-nav" aria-label="Primary navigation">
+        <div className="container nav-inner">
+          <a className="wordmark" href="#top" aria-label="Bishrav Shiwakoti home">BS<span>.</span></a>
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
+            {menuOpen ? <X size={21} /> : <Menu size={21} />}
+          </button>
+          <div className={`nav-links${menuOpen ? " nav-links-open" : ""}`}>
+            {navItems.map((item) => <a key={item} href={`#${item}`} onClick={() => setMenuOpen(false)}>{item[0].toUpperCase() + item.slice(1)}</a>)}
+            <a className="nav-resume" href="#resume" onClick={() => setMenuOpen(false)}>Resume <ArrowUpRight size={14} /></a>
           </div>
         </div>
       </nav>
 
-      <section id="experience" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
-              Experience
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Production-facing full-stack delivery
-            </h2>
+      <header className="hero container">
+        <div className="hero-copy">
+          <p className="eyebrow">Software engineer · Kathmandu, Nepal</p>
+          <h1>Hi, I&apos;m Bishrav.</h1>
+          <p className="hero-title">Backend &amp; AI Systems Engineer</p>
+          <p className="hero-summary">I build distributed backends, AI/ML systems, real-time applications, search/retrieval infrastructure, and developer tools.</p>
+          <p className="hero-open">Open to Software Engineering roles in <strong>Backend · Distributed Systems · AI/ML Infrastructure · Platform Engineering · Search/Retrieval · Developer Infrastructure</strong></p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#projects">View projects <ArrowDown size={16} /></a>
+            <a className="button button-secondary" href="#resume">Resume <ArrowUpRight size={16} /></a>
+            <a className="icon-link" href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={18} /></a>
+            <a className="icon-link" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
+            <a className="icon-link" href={`mailto:${profile.email}`} aria-label="Email"><Mail size={18} /></a>
           </div>
-          <p className="max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
-            Focused on reliable web systems across UI, API, database schema,
-            authentication, validation, testing, and operational tooling.
-          </p>
         </div>
+        <aside className="hero-aside">
+          <p className="eyebrow">Engineering focus</p>
+          <ul>
+            <li><span>01</span> Design clear service boundaries</li>
+            <li><span>02</span> Make data and model behavior explainable</li>
+            <li><span>03</span> Build for replay, failure, and operations</li>
+          </ul>
+          <div className="hero-rule" />
+          <p className="aside-note">Architecture, reliability, and measurable evidence matter as much as the interface.</p>
+        </aside>
+      </header>
 
-        <div className="grid gap-4 lg:grid-cols-3">
-          {experience.map((item) => (
-            <article
-              key={item.company}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
-            >
-              <p className="text-sm text-amber-200">{item.period}</p>
-              <h3 className="mt-3 text-xl font-semibold">{item.company}</h3>
-              <p className="mt-1 text-sm font-medium text-zinc-300">{item.role}</p>
-              <p className="mt-5 text-sm leading-6 text-zinc-400">{item.details}</p>
-            </article>
-          ))}
+      <section id="projects" className="section container">
+        <SectionHeading eyebrow="Featured work" title="Featured Engineering Projects" description="A focused set of systems that demonstrate backend depth, distributed processing, AI infrastructure, and production-minded delivery." />
+        <div className="project-grid">{projects.map((project) => <ProjectCard key={project.name} project={project} />)}</div>
+      </section>
+
+      <section className="section section-muted">
+        <div className="container">
+          <SectionHeading eyebrow="How I work" title="What I work on" />
+          <div className="capability-grid">{capabilities.map((item, index) => <article className="capability-card" key={item.title}><span className="capability-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
         </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
-            Project Evidence
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Systems that show the range
-          </h2>
-        </div>
+      <section id="experience" className="section container">
+        <SectionHeading eyebrow="Experience" title="Production-facing engineering" description="Experience across backend APIs, database-backed workflows, authentication, validation, delivery, and production web systems." />
+        <div className="experience-list">{experience.map((item) => <ExperienceItem key={item.company} item={item} />)}</div>
+      </section>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {projects.map((project) => (
-            <article
-              key={project.name}
-              className={`group relative overflow-hidden rounded-2xl border p-6 transition duration-300 hover:-translate-y-1 hover:border-amber-200/40 ${
-                project.featured
-                  ? "border-amber-200/20 bg-gradient-to-br from-amber-200/[0.12] via-zinc-900/80 to-zinc-900/70"
-                  : "border-white/10 bg-zinc-900/70"
-              }`}
-            >
-              {project.featured && (
-                <span className="absolute right-5 top-5 rounded-full border border-amber-200/20 bg-amber-200/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-200">
-                  Recent build
-                </span>
-              )}
-              <p className="text-sm font-medium text-amber-200">{project.category}</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight">{project.name}</h3>
-              <p className="mt-4 text-sm leading-6 text-zinc-400">{project.summary}</p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span key={item} className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-zinc-300">{item}</span>
-                ))}
-              </div>
-              <div className="mt-7 flex flex-wrap items-center gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-white transition group-hover:text-amber-200"
-                >
-                  <Github className="h-4 w-4" />
-                  View on GitHub
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-300/20"
-                  >
-                    Live Demo
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+      <section className="section section-muted">
+        <div className="container evidence-layout">
+          <div><SectionHeading eyebrow="Evidence" title="Engineering Evidence" description="Only evidence that is documented in the project repositories is shown here. More benchmarks will be added as they are measured." /><div className="metric-grid"><MetricCard value="12" label="DevLens tests documented" /><MetricCard value="4+" label="Sentinel phases implemented" /><MetricCard value="5" label="AEGIS phases complete" /></div></div>
+          <div className="evidence-note"><span className="signal-dot" /> <strong>Benchmarking in progress</strong><p>Cross-project throughput, latency, retrieval, and load-test results are intentionally omitted until they are measured and published.</p></div>
         </div>
       </section>
 
-      <section id="skills" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-lg border border-white/10 bg-white/[0.04] p-6 sm:p-8">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
-                Toolkit
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight">Core technical skills</h2>
-            </div>
-            <p className="max-w-xl text-sm leading-6 text-zinc-400">
-              Backend, frontend, database, authentication, test, delivery, and
-              observability tools used across professional and project work.
-            </p>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 bg-zinc-950 px-4 py-2 text-sm text-zinc-200"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+      <section id="skills" className="section container">
+        <SectionHeading eyebrow="Technical skills" title="A focused toolkit" description="Grouped by the kinds of systems I build, rather than a percentage bar or an undifferentiated icon wall." />
+        <div className="skills-grid">{skillGroups.map((group) => <SkillGroup key={group.title} {...group} />)}</div>
       </section>
 
-      <footer className="border-t border-white/10 px-4 py-10 text-center text-sm text-zinc-500">
-        <div className="flex flex-col items-center gap-4">
-          <p>Bishrav Shiwakoti · Kathmandu, Nepal · bishravs@gmail.com</p>
-          <div className="flex items-center gap-4">
-            <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://github.com/Bishrav" target="_blank" rel="noreferrer"><Github className="h-4 w-4" /> GitHub</a>
-            <a className="inline-flex items-center gap-2 transition hover:text-white" href="mailto:bishravs@gmail.com"><Mail className="h-4 w-4" /> Email</a>
-            <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://www.linkedin.com/in/bishrav-shiwakoti-603201345/" target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4" /> LinkedIn</a>
-            <a className="inline-flex items-center gap-2 transition hover:text-white" href="https://bishrav-portfolio-production.up.railway.app" target="_blank" rel="noreferrer"><ArrowUpRight className="h-4 w-4" /> Portfolio</a>
-          </div>
-        </div>
-      </footer>
+      <section id="about" className="section section-muted">
+        <div className="container about-grid"><SectionHeading eyebrow="About" title="Systems over surface area." /><div className="about-copy"><p>I&apos;m a software engineer focused on backend and AI systems. I enjoy solving problems involving distributed systems, machine learning infrastructure, real-time services, search, developer tooling, and production reliability.</p><p>I prefer engineering work where architecture, performance, reliability, and measurable technical decisions matter as much as the user interface.</p><div className="architecture-wrap"><p className="eyebrow">A common shape of the systems I build</p><ArchitectureDiagram /></div></div></div>
+      </section>
+
+      <section id="resume" className="section container resume-section"><div><p className="eyebrow">Resume</p><h2>Want the concise version?</h2><p>The resume PDF is the one remaining portfolio asset to connect. Until it is added, GitHub and LinkedIn provide the most current project and experience context.</p></div><a className="button button-secondary" href={profile.linkedin} target="_blank" rel="noreferrer">View professional profile <ArrowUpRight size={16} /></a></section>
+
+      <section className="section section-muted notes-section"><div className="container"><SectionHeading eyebrow="Coming later" title="Engineering Notes" description="A placeholder for technical writing once the articles are published." /><div className="notes-placeholder">Planned topics: idempotent event ingestion in AEGIS · Redis presence with WebSockets · BM25 vs vector search · graph-based incident correlation</div></div></section>
+
+      <ContactCTA />
+
+      <footer className="site-footer"><div className="container footer-inner"><p>© 2026 Bishrav Shiwakoti · Backend &amp; AI Systems Engineer</p><div><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={`mailto:${profile.email}`}>Email</a></div></div></footer>
     </main>
   );
 }
