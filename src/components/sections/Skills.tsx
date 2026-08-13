@@ -1,0 +1,3 @@
+import { skillGroups } from "@/data/portfolio";
+import SectionHeading from "@/components/SectionHeading";
+export default function Skills() { return <section id="skills" className="section container"><div className="split-heading"><SectionHeading eyebrow="Technical stack" title="A focused toolkit." /><p>Grouped by the systems I build, not by a list of every tool I have touched.</p></div><div className="skills-grid">{skillGroups.map((group) => <div className="skill-group" key={group.title}><h3>{group.title}</h3><div className="skill-items">{group.items.map((item) => <span key={item}>{item}</span>)}</div></div>)}</div></section>; }

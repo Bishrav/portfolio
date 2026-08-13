@@ -1,0 +1,3 @@
+import { experience } from "@/data/portfolio";
+import SectionHeading from "@/components/SectionHeading";
+export default function Experience() { return <section id="experience" className="section container"><div className="split-heading"><SectionHeading eyebrow="Experience" title="Production-facing engineering." /><p>Experience across backend APIs, database-backed workflows, authentication, validation, delivery, and production web systems.</p></div><div className="experience-list">{experience.map((item) => <article className="experience-item" key={item.company}><p className="experience-period">{item.period}</p><div><h3>{item.company}</h3><p className="experience-role">{item.role}</p></div><p className="experience-details">{item.details}</p></article>)}</div></section>; }

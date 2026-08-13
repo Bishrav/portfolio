@@ -1,0 +1,5 @@
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import type { Project } from "@/data/portfolio";
+import ArchitecturePreview from "./ArchitecturePreview";
+
+export default function ProjectCard({ project }: { project: Project }) { return <article className="project-card"><ArchitecturePreview type={project.visual} /><div className="project-card-body"><div className="project-meta"><span>{project.category}</span><span className="status-pill">{project.status}</span></div><h3>{project.name}</h3><p className="project-summary">{project.summary}</p><ul className="signal-list">{project.highlights.slice(0, 2).map((highlight) => <li key={highlight}>{highlight}</li>)}</ul><div className="tag-list">{project.stack.slice(0, 5).map((technology) => <span className="tag" key={technology}>{technology}</span>)}</div><div className="project-actions"><a href={project.github} target="_blank" rel="noreferrer"><Github size={16} /> GitHub <ArrowUpRight size={14} /></a>{project.live && <a className="action-secondary" href={project.live} target="_blank" rel="noreferrer"><ExternalLink size={16} /> Demo</a>}</div></div></article>; }
