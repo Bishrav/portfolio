@@ -24,6 +24,16 @@ const skills = [
   "OpenAI API",
   "SSE",
   "Drizzle ORM",
+  "Python",
+  "Machine Learning",
+  "Threat Modeling",
+  "Security Observability",
+  "Kafka",
+  "Neo4j",
+  "PostGIS",
+  "pgvector",
+  "OpenTelemetry",
+  "MinIO",
 ];
 
 const experience = [
@@ -51,6 +61,24 @@ const experience = [
 ];
 
 const projects = [
+  {
+    name: "Sentinel",
+    category: "Security intelligence and incident correlation",
+    summary:
+      "Autonomous cybersecurity intelligence engine that normalizes authentication, API, database, container, and infrastructure telemetry, then combines deterministic detection, behavioral ML, sequence analysis, threat graphs, and evidence-grounded investigation.",
+    stack: ["FastAPI", "Kafka", "Neo4j", "Behavioral ML", "OpenTelemetry"],
+    github: "https://github.com/Bishrav/Sentinel",
+    featured: true,
+  },
+  {
+    name: "AEGIS",
+    category: "Nepal flood-risk intelligence platform",
+    summary:
+      "Event-driven intelligence system that ingests weather, hydrology, roads, and public reports; detects anomalies, forecasts conditions, correlates incidents across time and geography, maps infrastructure dependencies, and produces transparent risk scores with evidence-grounded explanations.",
+    stack: ["FastAPI", "Next.js", "Kafka", "Neo4j", "PostGIS", "RBAC"],
+    github: "https://github.com/Bishrav/AEGIS",
+    featured: true,
+  },
   {
     name: "LiveBoard",
     category: "Real-time collaboration platform",
