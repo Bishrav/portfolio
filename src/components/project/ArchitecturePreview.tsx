@@ -78,6 +78,40 @@ const graphs: Record<Project["visual"], Graph> = {
     ],
     caption: ["validated input", "provider boundary", "persistent review"],
   },
+  atlas: {
+    eyebrow: "Measured route search",
+    nodes: [
+      { id: "graph", label: "Graph", x: 12, y: 96, width: 68, accent: true },
+      { id: "engine", label: "Route engine", x: 105, y: 96, width: 82, accent: true },
+      { id: "dijkstra", label: "Dijkstra", x: 212, y: 34, width: 72 },
+      { id: "astar", label: "A*", x: 212, y: 96, width: 72 },
+      { id: "bidir", label: "Bidirectional", x: 212, y: 158, width: 82 },
+      { id: "metrics", label: "Metrics", x: 318, y: 96, width: 72, accent: true },
+      { id: "cache", label: "Route cache", x: 407, y: 96, width: 70 },
+    ],
+    edges: [
+      { from: "graph", to: "engine" }, { from: "engine", to: "dijkstra" }, { from: "engine", to: "astar" },
+      { from: "engine", to: "bidir" }, { from: "dijkstra", to: "metrics" }, { from: "astar", to: "metrics" },
+      { from: "bidir", to: "metrics" }, { from: "metrics", to: "cache" },
+    ],
+    caption: ["validated graph", "multiple engines", "reproducible evidence"],
+  },
+  nexus: {
+    eyebrow: "Repository facts",
+    nodes: [
+      { id: "git", label: "Git revisions", x: 12, y: 96, width: 82, accent: true },
+      { id: "plan", label: "Change plan", x: 115, y: 96, width: 78, accent: true },
+      { id: "parser", label: "AST parser", x: 216, y: 34, width: 78 },
+      { id: "contracts", label: "Contracts", x: 216, y: 158, width: 78 },
+      { id: "index", label: "Repository index", x: 320, y: 96, width: 88, accent: true },
+      { id: "evidence", label: "Evidence", x: 425, y: 96, width: 62 },
+    ],
+    edges: [
+      { from: "git", to: "plan" }, { from: "plan", to: "parser" }, { from: "plan", to: "contracts" },
+      { from: "parser", to: "index" }, { from: "contracts", to: "index" }, { from: "index", to: "evidence" },
+    ],
+    caption: ["incremental changes", "typed facts", "source evidence"],
+  },
 };
 
 function edgePath(edge: Edge, nodes: Map<string, Node>) {

@@ -8,7 +8,7 @@ export type Project = {
   github: string;
   live?: string;
   caseStudy?: string;
-  visual: "aegis" | "sentinel" | "liveboard" | "devlens";
+  visual: "aegis" | "sentinel" | "liveboard" | "devlens" | "atlas" | "nexus";
 };
 
 export const profile = {
@@ -30,6 +30,28 @@ export const projects: Project[] = [
     live: "https://aegis-dashboard-beta.vercel.app",
     caseStudy: "https://github.com/Bishrav/AEGIS/blob/main/docs/architecture/overview.md",
     visual: "aegis",
+  },
+  {
+    name: "ATLAS",
+    category: "Algorithms / Routing Systems",
+    summary: "Algorithm-first C++20 routing and graph optimization engine with validated weighted graphs, multiple shortest-path engines, reproducible benchmarks, dynamic updates, and revision-aware route caching.",
+    stack: ["C++20", "CMake", "Dijkstra / A*", "Graph Algorithms", "Benchmarking"],
+    highlights: ["Dijkstra, coordinate-aware A*, and bidirectional Dijkstra with route reconstruction", "Fixed-seed correctness oracle and controlled short, medium, and long query benchmarks", "Versioned graph updates, edge closures, replayable events, and revision-aware LRU caching"],
+    status: "Research prototype / Phase 5 in progress",
+    github: "https://github.com/Bishrav/ATLAS",
+    caseStudy: "https://github.com/Bishrav/ATLAS/blob/main/docs/architecture.md",
+    visual: "atlas",
+  },
+  {
+    name: "NEXUS",
+    category: "Developer Tooling / Static Analysis",
+    summary: "Deterministic repository intelligence engine that extracts Python symbols, imports, calls, diagnostics, and Git changes into queryable facts for AI-assisted software engineering.",
+    stack: ["Python", "AST Parsing", "Git", "Static Analysis", "Repository Indexing"],
+    highlights: ["Python AST adapter with normalized symbols, imports, calls, and source diagnostics", "Incremental added, changed, removed, and unchanged file planning with Git revision discovery", "Versioned JSON snapshots, golden evaluation, benchmarks, bounded failures, and runtime metrics"],
+    status: "Research prototype / Phase 7 productization",
+    github: "https://github.com/Bishrav/Nexus",
+    caseStudy: "https://github.com/Bishrav/Nexus/blob/main/docs/architecture.md",
+    visual: "nexus",
   },
   {
     name: "Sentinel",
