@@ -62,6 +62,24 @@ const experience = [
 
 const projects = [
   {
+    name: "ATLAS",
+    category: "C++ routing and graph optimization engine",
+    summary:
+      "An algorithm-first C++20 routing engine with validated weighted graphs, Dijkstra, A*, bidirectional search, deterministic snapshots, correctness oracles, controlled benchmarks, dynamic edge updates, and revision-aware route caching.",
+    stack: ["C++20", "CMake", "Dijkstra", "A*", "Graph Algorithms", "Benchmarking"],
+    github: "https://github.com/Bishrav/ATLAS",
+    featured: true,
+  },
+  {
+    name: "NEXUS",
+    category: "Repository intelligence for AI-assisted engineering",
+    summary:
+      "A deterministic repository-facts engine that extracts Python symbols, imports, calls, diagnostics, and Git changes, then builds queryable indexes, incremental change plans, versioned snapshots, and benchmark evidence for future coding tools.",
+    stack: ["Python", "AST Parsing", "Git", "Static Analysis", "Indexing", "Benchmarks"],
+    github: "https://github.com/Bishrav/Nexus",
+    featured: true,
+  },
+  {
     name: "Sentinel",
     category: "Security intelligence and incident correlation",
     summary:
@@ -77,6 +95,7 @@ const projects = [
       "Event-driven intelligence system that ingests weather, hydrology, roads, and public reports; detects anomalies, forecasts conditions, correlates incidents across time and geography, maps infrastructure dependencies, and produces transparent risk scores with evidence-grounded explanations.",
     stack: ["FastAPI", "Next.js", "Kafka", "Neo4j", "PostGIS", "RBAC"],
     github: "https://github.com/Bishrav/AEGIS",
+    live: "https://aegis-dashboard-beta.vercel.app",
     featured: true,
   },
   {
