@@ -5,6 +5,25 @@ type Edge = { from: string; to: string; bend?: number };
 type Graph = { eyebrow: string; nodes: Node[]; edges: Edge[]; caption: string[] };
 
 const graphs: Record<Project["visual"], Graph> = {
+  nebula: {
+    eyebrow: "Trust-oriented retrieval",
+    nodes: [
+      { id: "sources", label: "Sources", x: 12, y: 96, width: 68, accent: true },
+      { id: "indexes", label: "Indexes", x: 105, y: 96, width: 68, accent: true },
+      { id: "lexical", label: "BM25", x: 205, y: 34, width: 68 },
+      { id: "vector", label: "HNSW", x: 205, y: 96, width: 68 },
+      { id: "graph", label: "Graph", x: 205, y: 158, width: 68 },
+      { id: "ranker", label: "Trust ranker", x: 303, y: 96, width: 82, accent: true },
+      { id: "evidence", label: "Evidence", x: 397, y: 42, width: 74 },
+      { id: "results", label: "Results", x: 397, y: 143, width: 74, accent: true },
+    ],
+    edges: [
+      { from: "sources", to: "indexes" }, { from: "indexes", to: "lexical" }, { from: "indexes", to: "vector" },
+      { from: "indexes", to: "graph" }, { from: "lexical", to: "ranker" }, { from: "vector", to: "ranker" },
+      { from: "graph", to: "ranker" }, { from: "ranker", to: "evidence" }, { from: "ranker", to: "results" },
+    ],
+    caption: ["multiple baselines", "inspectable signals", "reproducible evidence"],
+  },
   aegis: {
     eyebrow: "Event-driven intelligence",
     nodes: [

@@ -8,7 +8,7 @@ export type Project = {
   github: string;
   live?: string;
   caseStudy?: string;
-  visual: "aegis" | "sentinel" | "liveboard" | "devlens" | "atlas" | "nexus";
+  visual: "nebula" | "aegis" | "sentinel" | "liveboard" | "devlens" | "atlas" | "nexus";
 };
 
 export const profile = {
@@ -19,6 +19,17 @@ export const profile = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "NEBULA",
+    category: "Research / Information Retrieval",
+    summary: "Trust-oriented, explainable hybrid search for engineering knowledge, studying how lexical, semantic, freshness, authority, graph, and evidence signals affect retrieval effectiveness.",
+    stack: ["Java 17", "BM25 / RRF", "HNSW", "PageRank", "Docker", "GitHub Actions"],
+    highlights: ["Hybrid lexical-semantic retrieval with BM25, phrase search, dense baselines, exact cosine, and custom HNSW", "Trust-oriented ranking using freshness, source authority, graph context, and evidence metadata", "Reproducible evaluation with versioned inputs, SHA-256 manifests, protected labels, and explicit limitations"],
+    status: "Research prototype / Active study",
+    github: "https://github.com/Bishrav/NEBULA",
+    caseStudy: "https://github.com/Bishrav/NEBULA/blob/main/docs/architecture/overview.md",
+    visual: "nebula",
+  },
   {
     name: "AEGIS",
     category: "AI Systems / Distributed Systems",

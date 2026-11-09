@@ -9,7 +9,8 @@ import Skills from "@/components/sections/Skills";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 import OpenSourceRecognition from "@/components/sections/OpenSourceRecognition";
+import ResearchProject from "@/components/sections/ResearchProject";
 
 export default function App() {
-  return <main id="top"><Navbar /><Hero /><FeaturedProjects /><Capabilities /><Experience /><EngineeringEvidence /><OpenSourceRecognition /><Skills /><About /><Contact /><Footer /></main>;
+  return <main id="top"><Navbar /><Hero /><FeaturedProjects /><ResearchProject /><Capabilities /><Experience /><EngineeringEvidence /><OpenSourceRecognition /><Skills /><About /><Contact /><Footer /></main>;
 }
